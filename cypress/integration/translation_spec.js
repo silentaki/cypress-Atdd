@@ -27,7 +27,7 @@ describe('google translation', function() {
         translationPage.keyBoard.should('be.visible')
         translationPage.selectKeyBoard(data.targetLanguage)
         translationPage.inputValue.should('be.visible')
-        translationPage.enterKeys('H')
+        translationPage.enterKeys('h')
         translationPage.enterKeys('i')
         translationPage.germanTranslation.invoke('text').should('contains', 'Hi')
     })
