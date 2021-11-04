@@ -1,0 +1,7 @@
+{
+  "sourceLanguage": "German",
+  "targetLanguage": "Spanish",
+  "initialText": "Demokratien",
+  "expectResult1": "Democracias",
+  "expectResult2": "Demokratie"
+}

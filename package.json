@@ -1,0 +1,20 @@
+{
+  "name": "nuna",
+  "version": "1.0.0",
+  "description": "An E2E Test Automation framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:open": "cypress open"
+  },
+  "keywords": [
+    "automation"
+  ],
+  "author": "akash",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^8.7.0"
+  }
+}
+
+
