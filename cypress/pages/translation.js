@@ -62,7 +62,7 @@ enterKeys(key){
 }
 
 clearText(){
-
+    this.inputTranslation.first().clear()
 }
 
 }

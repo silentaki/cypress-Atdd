@@ -21,7 +21,7 @@ describe('google translation', function() {
     })
 
     it('select input tool', function() {
-        translationPage.inputTranslation.first().clear()
+        translationPage.clearText()
         translationPage.selectInputTool.should('be.visible')
         translationPage.selectInputTool.click()
         translationPage.keyBoard.should('be.visible')

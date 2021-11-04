@@ -7,7 +7,7 @@
     * Install node.js (npm) latest stable version
     * Browsers (Chrome is must)
 
-    ### Global Installs
+  ### Global Installs
 
   * npm init
   * npm install cypress --save-dev
