@@ -1,5 +1,5 @@
 {
-  "name": "nuna",
+  "name": "cypress",
   "version": "1.0.0",
   "description": "An E2E Test Automation framework",
   "main": "index.js",
