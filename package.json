@@ -13,6 +13,7 @@
   "author": "akash",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^16.11.7",
     "cypress": "^8.7.0",
     "typescript": "^4.4.4"
   },
