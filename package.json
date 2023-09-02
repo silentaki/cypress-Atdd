@@ -1,26 +1,32 @@
 {
-  "name": "cypress",
+  "name": "cypresse2e",
   "version": "1.0.0",
-  "description": "An E2E Test Automation framework",
+  "description": "E2E automation framework",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "cypress:open": "cypress open"
+    "test": "npx cypress open"
   },
-  "keywords": [
-    "automation"
-  ],
-  "author": "akash",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/silentaki/cypress-Atdd.git"
+  },
+  "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/silentaki/cypress-Atdd/issues"
+  },
+  "homepage": "https://github.com/silentaki/cypress-Atdd#readme",
   "devDependencies": {
-    "@types/node": "^16.11.7",
-    "cypress": "^8.7.0",
-    "typescript": "^4.4.4"
-  },
-  "cypress-cucumber-preprocessor": {
-    "step_definitions": "cypress/integration/steps/**/"
-  },
-  "dependencies": {
-    "cypress-cucumber-preprocessor": "^4.3.0"
+    "cypress": "^13.1.0",
+    "cypress-junit-reporter": "^1.3.1",
+    "cypress-log-to-output": "^1.1.2",
+    "cypress-multi-reporters": "^1.6.3",
+    "cypress-wait-until": "^2.0.1",
+    "cypress-xpath": "^2.0.1",
+    "mocha": "^10.2.0",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.3.0",
+    "mochawesome-report-generator": "^6.2.0",
+    "moment": "^2.29.4"
   }
 }
