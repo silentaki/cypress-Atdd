@@ -2,8 +2,8 @@ import GreenCarSSelector from "../selectors/GreencartSelector.js"
 
 class GreenCartPage {
 
-    clickSearchItem() {
-        GreenCarSSelector.searchItem.should('be.visible').click().type('cucumber')
+    clickSearchItem(itemName) {
+        GreenCarSSelector.searchItem.should('be.visible').click().type(itemName)
     }
 }
 
