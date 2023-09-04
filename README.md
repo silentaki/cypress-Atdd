@@ -139,13 +139,25 @@
     * Go to ``cypress.config.js`` file. Insert ``projectId: "copy Project ID from the project settings"``
     * Run the following command: ``npx cypress run --record --key {copy Record Key from the project settings} --browser chrome``
 
-  ### Part8: Cypress Github integration
+  ### Part8: Cypress Github Integration
   - Setup ``.github/workflows -> ci.yml`` file to configure github to run the automation. Reference guide: https://github.com/cypress-io/github-action
 
-   * Create the folder at parent level: ``.github/workflows``
-   * Create the file: ``ci.yml``
-   * Go to above link or just copy the content of ci.yml from the repo and push the commit.
-   * Goto github repo and look for actions tab.
+    * Create the folder at parent level: ``.github/workflows``
+    * Create the file: ``ci.yml``
+    * Go to above link or just copy the content of ci.yml from the repo and push the commit.
+    * Goto github repo and look for actions tab.
+
+  ### Part8: Commands creation for running automation scenarios locally
+  - Create commands under scripts section in ```package.json``` file to run automation locally.
+
+    ```
+    1. Open Cypress - "cypressOpen": "npx cypress open"
+    2. Clean up files - "cypressClean": "npx shx rm -rf cypress/results && npx shx rm -rf cypress/screenshots && npx shx rm -rf cypress/videos"
+    3. Running tag based scenarios - "cypressTagRun": "npx cypress run --browser chrome --headless --env grepTags={tagName}"
+    4. Dashboard run - "cypressDashBoardRun": "npm run cypressClean && npx cypress run --record --key {keyValue} --browser chrome'"
+    5. Run single spec file - "cypressRunSpecFile": "npm run clean && npx cypress run --record --key {value} --browser chrome --spec='{spec file path}'"
+    ```
+  
 
 
 
