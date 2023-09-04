@@ -38,7 +38,7 @@
       10. moment
       ```
 
-  ### Part2: Setting up Page Object Model, files structure and other requirements.
+  ### Part3: Setting up Page Object Model, files structure and other requirements.
   - We will be creating folders: ``pages``( for functions/methods), ``selectors``(for writing locators), ``specs``(for automation)
     * Delete everything under e2e and create the following folders mentioned above
     * Goto ``cypress.config.js`` and copy it as it is from project
@@ -78,7 +78,7 @@
       });
       ```
 
-  ### Part3: Xpath hacks.
+  ### Part4: Xpath hacks.
   - Here are the various ways which can be helpful in creating xpath.
 
   ```
@@ -90,7 +90,7 @@
    6. Normalised space: //span[normalize-space() ="KART"] 
    ```
 
-  ### Part4: Getting data from json file.
+  ### Part5: Getting data from json file.
    - We define data in json file created under fixture folder and then call those files in the spec file to get the   data.
 
    ```
@@ -101,7 +101,7 @@
     });
    ```
 
-  ### Part5: Running Tagged based scenarios
+  ### Part6: Running Tagged based scenarios
   - We will be defining tags to run the automation. Reference Guide: https://github.com/cypress-io/cypress/tree/develop/npm/grep
     * Install the package: npm i -D @cypress/grep
     * Copy & paste under e2e.js file
@@ -131,11 +131,17 @@
 
     * Command to Run: npx cypress run --browser chrome --headless --env grepTags={tagName}
 
-  ### Part6: Cypress Dashboard Configurations
-    ```coming soon```
+  ### Part7: Cypress Dashboard Configurations
+  - In order to run automation scenarios in cypress dashboard. First login to the dashboard and follow the steps
+    * Create account: https://www.cypress.io/cloud/
+    * Create New organisation and then create the new project.
+    * Goto Project settings and create new Key.
+    * Go to ``cypress.config.js`` file. Insert ``projectId: "copy Project ID from the project settings"``
+    * Run the following command: ``npx cypress run --record --key {copy Record Key from the project settings} --browser chrome``
 
-  ### Part7: 
-    ```coming soon```
+  ### Part8: Cypress automation paralle execution 
+  - In order to run parallel exection, make sure cypress dashboard is set up.
+   * 
 
 
 
