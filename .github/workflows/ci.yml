@@ -1,27 +1,33 @@
-name: End-to-end tests
+name: Parallel Cypress Tests
 on: push
 jobs:
-  cypress-run:
+  test:
+    name: Cypress run
     runs-on: ubuntu-22.04
-    container:
-      image: cypress/browsers:latest
-      options: --user 1001
+    strategy:
+      # when one test fails, DO NOT cancel the other
+      # containers, because this will kill Cypress processes
+      # leaving Cypress Cloud hanging ...
+      # https://github.com/cypress-io/github-action/issues/48
+      fail-fast: false
       matrix:
         # run 3 copies of the current job in parallel
         containers: [1, 2, 3]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      # Install npm dependencies, cache them correctly
-      # and run all Cypress tests
+
+      # because of "record" and "parallel" parameters
+      # these containers will load balance all found tests among themselves
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          parallel: true
           record: true
-      env:
+          parallel: true
+          group: 'Actions example'
+        env:
           # pass the Cypress Cloud record key as an environment variable
-        CYPRESS_RECORD_KEY: b0e0ef56-b1b8-4d68-9c77-59d797de4d19
+          CYPRESS_RECORD_KEY: b0e0ef56-b1b8-4d68-9c77-59d797de4d19
           # Recommended: pass the GitHub token lets this action correctly
           # determine the unique run id necessary to re-run the checks
-        GITHUB_TOKEN: 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
+          GITHUB_TOKEN: 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
