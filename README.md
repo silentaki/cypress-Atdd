@@ -3,9 +3,9 @@
 
 ### Pre-requisite Software
 
-     1. Install Visual Studio Code (or may be your favourite IDE): [vscode](https://code.visualstudio.com/)
-     2. Install node.js (npm) latest stable version: [node](https://nodejs.org/en)
-     3. Browsers (Chrome is must): [chrome](https://www.google.com/chrome/)
+     1. Install Visual Studio Code (or may be your favourite IDE): (https://code.visualstudio.com/)
+     2. Install node.js (npm) latest stable version: (https://nodejs.org/en)
+     3. Browsers (Chrome is must): (https://www.google.com/chrome/)
 
   ### Part1: Installing Cypress
   - Check Node Version in terminal
@@ -22,7 +22,7 @@
 
     Note: setup the interface to make sure you have folder structures created in vs code.
 
-    ### Part2: Installing All dependencies.
+  ### Part2: Installing All dependencies.
   - We need to install following packages in order to setup the end to end framework.
     * Use this following command to install the mentioned packages. ``npm install -D packageName``
       ```cypress-junit-reporter
@@ -36,7 +36,7 @@
        mochawesome-report-generator
        moment
 
-    ### Part2: Setting up Page Object Model, files structure and other requirements.
+  ### Part2: Setting up Page Object Model, files structure and other requirements.
   - We will be creating folders: ``pages``( for functions/methods), ``selectors``(for writing locators), ``specs``(for automation)
     * Delete everything under e2e and create the following folders mentioned above
     * Goto ``cypress.config.js`` and copy it as it is from project
@@ -71,23 +71,39 @@
      describe("Green cart scenarios", () => {
      it("descripton", () => {
         write code
-      });
+       });
+     });
+      ```
+
+  ### Part3: Common ways for defining the xpath.
+  - Here are the various ways which can be helpful in creating xpath.
+  ```
+   1. Using Text: //button[text() = "ADD TO CART"]
+   2. Back to previous sibling: //button[@class="search-button"]/preceding-sibling::input
+   3. Goto Next sibling: //a[@class="cart-header-navlink"]/following-sibling::a
+   4. Contains: //a[contains(text(),"Deals")]
+   5. Normalised space: //span[normalize-space() ="KART"]
+   6. Goto Parent: //span[@class="redLogo"]/parent::div
+   ```
+
+  ### Part4: Getting data from json file and using assertions
+   - We define data in json file created under fixture folder and then call those files in the spec file to get the   data.
+
+   ```
+     before(() => {
+     cy.fixture("fileName.json").then((value) => {
+       return data = value
+       });
     });
-     ```
+   ```
 
-    ### Part3: Common ways for defining the xpath.
-    ``` coming soon```
-
-    ### Part4: Getting data from json file and using assertions
-    ``` coming soon```
-
-    ### Part5:  Running Tagged based scenarios
+  ### Part5:  Running Tagged based scenarios
     ```coming soon```
 
-    ### Part6:  Parallel executions
+  ### Part6:  Parallel executions
     ```coming soon```
 
-    ### Part6:  Cypress Dashboard Configurations
+  ### Part6:  Cypress Dashboard Configurations
     ```coming soon```
 
 

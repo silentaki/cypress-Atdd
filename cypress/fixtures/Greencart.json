@@ -1,3 +1,7 @@
 {
-  "itemName1": "Cucumber"
+  "itemName1": "Cucumber",
+  "item1Weight": "1 Kg",
+  "item1Price": "48",
+  "itemName2": "Cauliflower",
+  "ItemName3": "Brocolli"
 }
