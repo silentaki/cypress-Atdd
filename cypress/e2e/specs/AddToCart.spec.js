@@ -3,7 +3,7 @@ const greenCartPage = new GreenCartPage();
 let data;
 before(() => {
   cy.fixture("Greencart.json").then((value) => {
-    return data = value
+    return (data = value);
   });
 });
 
@@ -11,7 +11,7 @@ beforeEach(() => {
   cy.visit("seleniumPractise/#/");
 });
 
-describe("Green cart scenarios", () => {
+describe("Green cart scenarios", { tags: ["@regression"] }, () => {
   it("user is able to add items to cart and verify the items added", () => {
     greenCartPage.verifyItemsAddedCount(2);
   });

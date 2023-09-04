@@ -2,10 +2,10 @@
 # Cypress Automation: An E2E Test Automation Framework using cypress and node with KISS Approach - Keep it Super Simple.
 
 ### Pre-requisite Software
-
-     1. Install Visual Studio Code (or may be your favourite IDE): (https://code.visualstudio.com/)
-     2. Install node.js (npm) latest stable version: (https://nodejs.org/en)
-     3. Browsers (Chrome is must): (https://www.google.com/chrome/)
+  - Install the following pre-requisites
+    * Install Visual Studio Code (or may be your favourite IDE): https://code.visualstudio.com/
+    * Install node.js (npm) latest stable version: https://nodejs.org/en
+    * Browsers (Chrome is must): https://www.google.com/chrome/
 
   ### Part1: Installing Cypress
   - Check Node Version in terminal
@@ -25,16 +25,18 @@
   ### Part2: Installing All dependencies.
   - We need to install following packages in order to setup the end to end framework.
     * Use this following command to install the mentioned packages. ``npm install -D packageName``
-      ```cypress-junit-reporter
-       cypress-log-to-output
-       cypress-multi-reporters
-       cypress-wait-until
-       cypress-xpath
-       mocha
-       mochawesome
-       mochawesome-merge
-       mochawesome-report-generator
-       moment
+      ```
+       1. cypress-junit-reporter
+       2. cypress-log-to-output
+       3. cypress-multi-reporters
+       4. cypress-wait-until
+       5. cypress-xpath
+       6. mocha
+       7. mochawesome
+       8. mochawesome-merge
+       9. mochawesome-report-generator
+      10. moment
+      ```
 
   ### Part2: Setting up Page Object Model, files structure and other requirements.
   - We will be creating folders: ``pages``( for functions/methods), ``selectors``(for writing locators), ``specs``(for automation)
@@ -53,7 +55,7 @@
          export default new GreencartSelector
        ```  
         
-   * pages folder: create a file ``GreencartPage.js``. Define a class name always as a file name. Import the selectors files
+    * pages folder: create a file ``GreencartPage.js``. Define a class name always as a file name. Import the selectors files
       
       ```
       import GreenCarSSelector from "../selectors/GreencartSelector.js"
@@ -63,30 +65,32 @@
         export default GreenCartPage
       ```
 
-   * spec folder: create a file ``Greencart.spec.js``. Import the pages files.
-     ```
-     import GreenCartPage from "../pages/GreencartPage";
-     const greenCartPage = new GreenCartPage();
+    * spec folder: create a file ``Greencart.spec.js``. Import the pages files.
 
-     describe("Green cart scenarios", () => {
-     it("descripton", () => {
+      ```
+      import GreenCartPage from "../pages/GreencartPage";
+      const greenCartPage = new GreenCartPage();
+
+      describe("Green cart scenarios", () => {
+      it("descripton", () => {
         write code
-       });
-     });
+        });
+      });
       ```
 
-  ### Part3: Common ways for defining the xpath.
+  ### Part3: Xpath hacks.
   - Here are the various ways which can be helpful in creating xpath.
+
   ```
    1. Using Text: //button[text() = "ADD TO CART"]
-   2. Back to previous sibling: //button[@class="search-button"]/preceding-sibling::input
-   3. Goto Next sibling: //a[@class="cart-header-navlink"]/following-sibling::a
-   4. Contains: //a[contains(text(),"Deals")]
-   5. Normalised space: //span[normalize-space() ="KART"]
-   6. Goto Parent: //span[@class="redLogo"]/parent::div
+   2. Goto Parent: //span[@class="redLogo"]/parent::div
+   3. Back to previous sibling: //button[@class="search-button"]/preceding-sibling::input
+   4. Goto Next sibling: //a[@class="cart-header-navlink"]/following-sibling::a
+   5. Contains: //a[contains(text(),"Deals")]
+   6. Normalised space: //span[normalize-space() ="KART"] 
    ```
 
-  ### Part4: Getting data from json file and using assertions
+  ### Part4: Getting data from json file.
    - We define data in json file created under fixture folder and then call those files in the spec file to get the   data.
 
    ```
@@ -97,13 +101,40 @@
     });
    ```
 
-  ### Part5:  Running Tagged based scenarios
+  ### Part5: Running Tagged based scenarios
+  - We will be defining tags to run the automation. Reference Guide: https://github.com/cypress-io/cypress/tree/develop/npm/grep
+    * Install the package: npm i -D @cypress/grep
+    * Copy & paste under e2e.js file
+      
+      ```
+      //Import @cypress/grep
+      const registerCypressGrep = require('@cypress/grep')
+      registerCypressGrep()
+      ```
+      
+    * Copy & paste under cypress.config.js.
+
+      ```
+      setupNodeEvents(on, config) {
+      require('@cypress/grep/src/plugin')(config);
+      return config;
+      }
+      ```
+      
+    * Configure the automation scenarios
+
+      ```
+      describe("Green cart scenarios", {tags:['@regression']}, () => {}) 
+      OR
+      it("user is able to search an item and verify the price", {tags: ['@smoke']}, () => {})
+      ```
+
+    * Command to Run: npx cypress run --browser chrome --headless --env grepTags={tagName}
+
+  ### Part6: Cypress Dashboard Configurations
     ```coming soon```
 
-  ### Part6:  Parallel executions
-    ```coming soon```
-
-  ### Part6:  Cypress Dashboard Configurations
+  ### Part7: 
     ```coming soon```
 
 

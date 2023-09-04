@@ -21,3 +21,7 @@ import './commands'
 
 //Import Xpath
 import '../../node_modules/cypress-xpath'
+
+//Import @cypress/grep
+const registerCypressGrep = require('@cypress/grep')
+registerCypressGrep()

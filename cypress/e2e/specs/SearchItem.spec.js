@@ -4,7 +4,7 @@ const greenCartPage = new GreenCartPage();
 let data;
 before(() => {
   cy.fixture("Greencart.json").then((value) => {
-    return data = value
+    return (data = value);
   });
 });
 
@@ -13,18 +13,27 @@ beforeEach(() => {
 });
 
 describe("Green cart scenarios", () => {
-  it("user is able to search an item and verify the name", () => {
-    greenCartPage.clickSearchItem(data.itemName1);
-    greenCartPage.verifySearchItemName(data.itemName1)
-  });
+  it(
+    "user is able to search an item and verify the name",
+    { tags: ["@regression"] },
+    () => {
+      greenCartPage.clickSearchItem(data.itemName1);
+      greenCartPage.verifySearchItemName(data.itemName1);
+    });
 
-  it("user is able to search an item and verify the price", () => {
-    greenCartPage.clickSearchItem(data.itemName1);
-    greenCartPage.verifyItemPrice(data.item1Price)
-  });
+  it(
+    "user is able to search an item and verify the price",
+    { tags: ["@smoke"] },
+    () => {
+      greenCartPage.clickSearchItem(data.itemName1);
+      greenCartPage.verifyItemPrice(data.item1Price);
+    });
 
-  it("user is able to search an item and verify the weight", () => {
-    greenCartPage.clickSearchItem(data.itemName1);
-    greenCartPage.verifySearchItemWeight(data.item1Weight)
-  });
+  it(
+    "user is able to search an item and verify the weight",
+    { tags: ["@smoke"] },
+    () => {
+      greenCartPage.clickSearchItem(data.itemName1);
+      greenCartPage.verifySearchItemWeight(data.item1Weight);
+    });
 });
