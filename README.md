@@ -148,7 +148,7 @@
     * Goto github repo and look for actions tab.
 
   ### Part8: Commands creation for running automation scenarios locally
-  - Create commands under scripts section in ```package.json``` file to run automation locally.
+  - Create commands under scripts section in ```package.json``` file to run automation locally. Use ``npm run commandName`` to run the commands in terminal.
 
     ```
     1. Open Cypress - "cypressOpen": "npx cypress open"
