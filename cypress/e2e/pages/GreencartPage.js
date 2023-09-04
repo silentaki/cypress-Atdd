@@ -10,6 +10,7 @@ class GreenCartPage {
   }
 
   verifySearchItemName(itemName) {
+    cy.wait(2000);
     GreenCarSSelector.searchItemName.should("be.visible").then((el) => {
       let getItemName = el.text().split(" ")[0];
       expect(itemName).eql(getItemName);
@@ -25,7 +26,7 @@ class GreenCartPage {
   }
 
   verifyItemsAddedCount(itemAdded) {
-    const itemList = ["Brocolli", "Cucumber"];
+    const itemList = ["Brocolli", "Cauliflower"];
     GreenCarSSelector.searchItemName.each((el, index, list) => {
       let getItemName = el.text().split(" ")[0];
         if (itemList[index] === getItemName) {
