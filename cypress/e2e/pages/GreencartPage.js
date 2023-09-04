@@ -35,7 +35,7 @@ class GreenCartPage {
     })
     GreenCarSSelector.itemCount.should('be.visible').then ((el) =>{
         let count = el.text()
-        expect(count).equals(itemAdded)
+        expect(parseInt(count)).equals(itemAdded)
     })
   }
 
