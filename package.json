@@ -7,7 +7,8 @@
     "cypressOpen": "npx cypress open",
     "cypressTagRun": "npx cypress run --browser chrome --headless --env grepTags={tagName}",
     "cypressClean": "npx shx rm -rf cypress/results && npx shx rm -rf cypress/screenshots && npx shx rm -rf cypress/videos",
-    "cypressDashBoardRun": "npm run cypressClean && npx cypress run --record --key {keyValue} --browser chrome'"
+    "cypressDashBoardRun": "npm run cypressClean && npx cypress run --record --key {keyValue} --browser chrome'",
+    "cypressRunSpecFile": "npm run clean && npx cypress run --record --key {value} --browser chrome --spec='{spec file path}"
   },
   "repository": {
     "type": "git",
