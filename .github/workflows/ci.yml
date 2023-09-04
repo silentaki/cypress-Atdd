@@ -1,63 +1,12 @@
-name: Cypress Tests
-
-on:
-  push:
-    branches-ignore:
-      - "master/**"
-
+name: End-to-end tests
+on: push
 jobs:
-  install:
-  ui-chrome-tests:
-    timeout-minutes: 15
-    runs-on: ubuntu-latest
-    container:
-      image: cypress/browsers:node16.16.0-chrome105-ff104-edge
-      options: --user 1001
-    needs: install
-    strategy:
-      # when one test fails, DO NOT cancel the other
-      # containers, because this will kill Cypress processes
-      # leaving Cypress Cloud hanging ...
-      # https://github.com/cypress-io/github-action/issues/48
-      fail-fast: false
-      matrix:
-        # run copies of the current job in parallel
-        containers: [1, 2]
+  cypress-run:
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-
-      - name: Download the build folders
-        uses: actions/download-artifact@v3
-        with:
-          name: build
-          path: build
-
-      - name: Cypress info
-        run: npx cypress info
-
-      - name: Node info
-        run: node -v
-
-      - name: __e Dir
-        run: ls /__e
-
-      - name: "UI Tests - Chrome"
-        uses: cypress-io/github-action@v5
-        with:
-          start: yarn start:ci
-          wait-on: "http://localhost:3000"
-          wait-on-timeout: 120
-          browser: chrome
-          record: true
-          parallel: true
-          group: "UI - Chrome"
-          spec: cypress/tests/ui/*
-          config-file: cypress.config.js
-        env:
-          CYPRESS_PROJECT_ID: nyxe43
-          CYPRESS_RECORD_KEY: b0e0ef56-b1b8-4d68-9c77-59d797de4d19
-          # Recommended: pass the GitHub token lets this action correctly
-          # determine the unique run id necessary to re-run the checks
-          GITHUB_TOKEN: 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
-          DEBUG: "cypress:server:args"
+      # Install npm dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v6

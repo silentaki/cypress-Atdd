@@ -139,9 +139,13 @@
     * Go to ``cypress.config.js`` file. Insert ``projectId: "copy Project ID from the project settings"``
     * Run the following command: ``npx cypress run --record --key {copy Record Key from the project settings} --browser chrome``
 
-  ### Part8: Cypress automation paralle execution 
-  - In order to run parallel exection, make sure cypress dashboard is set up.
-   * 
+  ### Part8: Cypress Github integration
+  - Setup ``.github/workflows -> ci.yml`` file to configure github to run the automation. Reference guide: https://github.com/cypress-io/github-action
+
+   * Create the folder at parent level: ``.github/workflows``
+   * Create the file: ``ci.yml``
+   * Go to above link or just copy the content of ci.yml from the repo and push the commit.
+   * Goto github repo and look for actions tab.
 
 
 
