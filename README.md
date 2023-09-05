@@ -141,14 +141,14 @@
 
   ### Part8: Cypress Github Integration
   - Setup ``.github/workflows -> ci.yml`` file to configure github to run the automation. Reference guide: https://github.com/cypress-io/github-action
-
     * Create the folder at parent level: ``.github/workflows``
     * Create the file: ``ci.yml``
     * Go to above link or just copy the content of ci.yml from the repo and push the commit.
     * Goto github repo and look for actions tab.
 
-  ### Part8: Commands creation for running automation scenarios locally
-  - Create commands under scripts section in ```package.json``` file to run automation locally. Use ``npm run commandName`` to run the commands in terminal.
+  ### Part9: Commands creation for running automation scenarios locally
+  - Create commands under scripts section in ```package.json``` file to run automation locally.
+    * Use ``npm run commandName`` to run the commands in terminal.
 
     ```
     1. Open Cypress - "cypressOpen": "npx cypress open"
